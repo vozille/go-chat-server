@@ -10,4 +10,4 @@ go get github.com/gorilla/websocket
 go run main.go
 ```
 
-Then point your browser to http://localhost:8000
+Then point your browser to http://localhost:3000

@@ -1,22 +1,24 @@
-new Vue({
+var chatVue = new Vue({
     el: '#app',
 
     data: {
-        ws: null, // Our websocket
-        newMsg: '', // Holds new messages to be sent to the server
-        chatContent: '', // A running list of chat messages displayed on the screen
-        email: null, // Email address used for grabbing an avatar
-        username: null, // Our username
-        joined: false // True if email and username have been filled in
+        ws: null, 
+        newMsg: '', 
+        chatContent: '', 
+        email: null, 
+        username: null, 
+        profileImage: null, 
+        joined: false, 
+        userSignedIn: false
     },
 
     created: function() {
         var self = this;
-        this.ws = new WebSocket('ws://' + window.location.host + '/ws');
+        this.ws = new WebSocket('ws://' + window.location.host + '/websockets');
         this.ws.addEventListener('message', function(e) {
             var msg = JSON.parse(e.data);
             self.chatContent += '<div class="chip">'
-                    + '<img src="' + self.gravatarURL(msg.email) + '">' // Avatar
+                    + '<img src="' + msg.profileImage + '">' // Avatar
                     + msg.username
                 + '</div>'
                 + emojione.toImage(msg.message) + '<br/>'; // Parse emojis
@@ -33,6 +35,7 @@ new Vue({
                     JSON.stringify({
                         email: this.email,
                         username: this.username,
+                        profileImage: this.profileImage,
                         message: $('<p>').html(this.newMsg).text() // Strip out html
                     }
                 ));
@@ -56,6 +59,13 @@ new Vue({
 
         gravatarURL: function(email) {
             return 'http://www.gravatar.com/avatar/' + CryptoJS.MD5(email);
+        },
+        logout: function()
+        {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+            console.log('User signed out.');
+            });
         }
     }
 });
