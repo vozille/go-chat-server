@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
 	"github.com/gorilla/websocket"
 )
 
@@ -16,9 +17,9 @@ var upgrader = websocket.Upgrader{
 
 // Define our message object
 type Message struct {
-	Email    string `json:"email"`
-	Username string `json:"username"`
-	Message  string `json:"message"`
+	Email        string `json:"email"`
+	Username     string `json:"username"`
+	Message      string `json:"message"`
 	ProfileImage string `json:"profileImage"`
 }
 
@@ -69,6 +70,11 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 		// Send the newly received message to the broadcast channel
 		broadcast <- msg
 	}
+}
+
+func storeMessageToDatabase() {
+	var msg Message
+	msg.Email = "goo@foo"
 }
 
 func handleMessages() {
