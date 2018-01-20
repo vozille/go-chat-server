@@ -11,3 +11,5 @@ go run main.go
 ```
 
 Then point your browser to http://localhost:3000
+
+live at : http://ec2-13-250-25-118.ap-southeast-1.compute.amazonaws.com
