@@ -12,4 +12,4 @@ go run main.go
 
 Then point your browser to http://localhost:3000
 
-live at : http://ec2-52-221-214-65.ap-southeast-1.compute.amazonaws.com
+live at : http://football.advancedmaths.in
