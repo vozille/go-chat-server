@@ -1,0 +1,30 @@
+{
+  "name": "go-realtime-chat",
+  "version": "1.0.0",
+  "description": "This is a simple chat web app written in Go",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vozille/go-chat-server.git"
+  },
+  "author": "anwesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vozille/go-chat-server/issues"
+  },
+  "homepage": "https://github.com/vozille/go-chat-server#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "merge-stream": "^1.0.1",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^3.9.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  }
+}

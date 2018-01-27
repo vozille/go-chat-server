@@ -72,10 +72,6 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func storeMessageToDatabase() {
-	var msg Message
-	msg.Email = "goo@foo"
-}
 
 func handleMessages() {
 	for {
